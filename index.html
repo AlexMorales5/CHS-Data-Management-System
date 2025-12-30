@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cathedral High School Data Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            
+            <h1><img src="https://resources.finalsite.net/images/f_auto,q_auto/v1568664484/cathedralirish/gotcog3rnokdvuizafck/CathedralLogowhite.png" width="45" height="45"> Cathedral High School Data Management System</h1>
+            <p>Developed by Alexander Morales (Purdue)</p>
+        </header>
+        
+        <!-- Main application tabs -->
+        <div class="main-tabs">
+            <button class="main-tab-button active" data-main-tab="student-search">Student Data Search Base</button>
+            <button class="main-tab-button" data-main-tab="general-data">General Data</button>
+        </div>
+        
+        <!-- Student Search Tab Content -->
+        <div id="student-search-content" class="main-tab-content">
+            <div class="search-section">
+                <label for="studentNumber">Enter Student ID Number:</label>
+                <input type="number" id="studentNumber" placeholder="e.g., 20038" />
+                <button id="searchButton">Search</button>
+                <button id="exportButton">Export Data</button>
+            </div>
+            
+            <div id="studentInfo" class="student-info hidden">
+                <!-- Student basic information will be displayed here -->
+            </div>
+            
+            <div class="data-tabs hidden" id="dataTabs">
+                <button class="tab-button active" data-tab="overview">Overview</button>
+                <button class="tab-button" data-tab="gpa">GPA</button>
+                <button class="tab-button" data-tab="standardized">Test Scores</button>
+                <button class="tab-button" data-tab="ap">AP Exams</button>
+                <button class="tab-button" data-tab="background">Background</button>
+            </div>
+            
+            <div id="tabContent" class="tab-content hidden">
+                <!-- Tab content will be displayed here -->
+            </div>
+        </div>
+        
+        <!-- General Data Tab Content -->
+        <div id="general-data-content" class="main-tab-content hidden">
+            <div class="general-data-controls">
+                <select id="dataCategory">
+                    <option value="">Select Data Category</option>
+                    <option value="gpa-trends">GPA Trends</option>
+                    <option value="sat-trends">SAT Score Trends</option>
+                    <option value="ap-distribution">AP Score Distribution</option>
+                    <option value="college-readiness">College Readiness</option>
+                    <option value="class-comparison">Class Year Comparison</option>
+                </select>
+                
+                <select id="gradYear" class="hidden">
+                    <option value="all">All Years</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                </select>
+            </div>
+            
+            <div id="generalDataContent" class="general-data-display">
+                <div class="select-prompt">
+                    <h3>Select a data category from the dropdown above to view charts and analytics</h3>
+                </div>
+                
+                <div id="chartContainer" class="chart-container hidden">
+                    <canvas id="dataChart"></canvas>
+                </div>
+                
+                <div id="dataTableContainer" class="data-table-container hidden">
+                    <!-- Data tables will be inserted here -->
+                </div>
+                
+                <div id="dataInsights" class="data-insights hidden">
+                    <!-- Data insights and analysis will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="general-data.js"></script>
+</body>
+</html>
